@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetch('http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz000002&scale=5&ma=5&datalen=1023')
+            .then(response => response.json()).then(data => console.log(data))
+
+        window.onload =function (ev) {
+          var aa = document.createElement("script");
+          console.log(aa)
+            aa.src = "http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sz000002&scale=5&ma=5&datalen=1023"
+                document.body.append(aa);
+            aa.onload = function (e) {
+                console.log(e,123)
+                aa.ad
+            }
+        }
+
+
+    </script>
+</body>
+</html>
