@@ -32,6 +32,7 @@ var Star = function () {
     }
 }    /*画月亮*/
 function drawMoon() {
+    return
     var moon = new Image();
     moon.src = "./images/moon.jpg"
     context.drawImage(moon, -5, -10);
