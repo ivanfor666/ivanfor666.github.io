@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head><title>iVan's App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link rel="stylesheet/less" type="text/css" href="./color.less"/>
+    <script>       window.less = {async: false, env: 'production'};     </script>
     <script type="text/javascript">       (function (w, d) {
         function setSize() {
             var screenWidth = d.documentElement.clientWidth;
@@ -12,12 +16,6 @@
         w.addEventListener('pageShow', setSize)
         w.addEventListener('DOMContentLoaded', setSize)
     })(window, document)     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="Pragma" content="no-cache">
-    <link rel="stylesheet/less" type="text/css" href="./color.less"/>
-    <script>       window.less = {async: false, env: 'production'};     </script>
-    <script type="text/javascript" src="./less.min.js"></script>
-    <script type="text/javascript" src="background.js"></script>
 </head>
 <body>
 <noscript> 亲，请您开启浏览器的javascript功能 ：）</noscript>
@@ -27,6 +25,8 @@
 <canvas id="stars" style="position: fixed;z-index: -1;background: cadetblue"></canvas>
 <div id="root" style="background: transparent"></div>
 <div id="iframe_box"></div>
-<script src="bundle.js"></script>
+<script src="./js/bundle.js"></script>
+<!--<script type="text/javascript" src="./less.min.js"></script>-->
+<script type="text/javascript" src="./js/background.js"></script>
 </body>
 </html>
