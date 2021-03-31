@@ -4,7 +4,7 @@ var starCount = 400;
 var rains = new Array();
 var rainCount = 16;    /*初始化画布及context*/
 function init() {  	/*获取canvas*/
-    var stars = document.getElementById("stars");
+    var stars = canvas;
     windowWidth = window.innerWidth; /*当前的窗口的高度*/
     stars.width = windowWidth;
     stars.height = window.innerHeight;  	/*获取context*/
@@ -37,7 +37,7 @@ function drawMoon() {
     moon.src = "./images/moon.jpg"
     context.drawImage(moon, -5, -10);
 }        /*页面加载的时候*/
-window.onload = function () {
+ function starStart() {
     init();  	/*画星星*/
     for (var i = 0; i < starCount; i++) {
         var star = new Star();
@@ -141,3 +141,5 @@ function playRains() {
     }
     setTimeout("playRains()", 2);
 }      /*流星雨结束*/
+
+starStart();
