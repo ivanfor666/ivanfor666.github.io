@@ -1,0 +1,93 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>          /*案例一*/
+    .box1 {
+        width: 200px;
+        border: 1px solid red;
+        overflow: hidden; /*这行是关键，通过设置overflow触发BFC!!!!*/
+    }
+
+    .son {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        float: left;
+    }
+
+    /*案例一*/ /*案例二*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .box2 {
+        width: 400px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .black {
+        width: 100px;
+        height: 50px;
+        float: left;
+        background-color: black;
+    }
+
+    .yellow {
+        width: 200px;
+        height: 100px; /* float: left; */ /* display: inline-block; */ /* display: table-cell; */
+        overflow: hidden;
+        background-color: yellow;
+    }
+
+    /*案例二*/ /*案例三*/
+    .green {
+        width: 200px;
+        height: 20px;
+        margin-bottom: 10px;
+        background-color: green;
+    }
+
+    .red {
+        width: 200px;
+        height: 20px;
+        margin-top: 20px;
+        background-color: red;
+    }
+
+    .box3 {
+        overflow: hidden; /*给这个div设置 overflow，使之触发BFC*/
+    }
+
+    .main {
+        width: 300px; /* height: 250px; */
+        border: 1px solid #ccc;
+    }
+
+    /*案例三*/       </style>
+</head>
+<body>
+<div class="main">
+    <div>BFC案例</div>
+    <div>案例一</div>
+    <div class="box1">
+        <div class="son"></div>
+    </div>
+    <br>
+    <div>案例二</div>
+    <div class="box2">
+        <div class="black"></div>
+        <div class="yellow">我是右侧div里边的内容，我的内容很长，但是我不想占据左边黑色div的范围！！！</div>
+    </div>
+    <br>
+    <div>案例三</div>
+    <div class="green"></div>
+    <div class="box3">         <!--/*通过给第二个元素嵌套一个div，并通过触发BFC可以解决边距塌陷问题*/-->
+        <div class="red">BFC</div>
+    </div>
+</div>
+</body>
+</html>
