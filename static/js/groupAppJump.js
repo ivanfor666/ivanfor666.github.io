@@ -9,7 +9,7 @@
         var dataset = otitle.dataset;
         if (typeof (dataset) === "object") {
             if (dataset.apptype === "1") {
-                window.location.href = window.location.href + "build"
+                window.location.href = window.location.href + "router-demo"
             } else {
                 console.log(window.location)
                 window.location.href = window.location.origin;
