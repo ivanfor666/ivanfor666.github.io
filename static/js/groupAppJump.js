@@ -9,7 +9,7 @@
         var dataset = otitle.dataset;
         if (typeof (dataset) === "object") {
             if (dataset.apptype === "1") {
-                window.open(window.location.href = window.location.href + "router-demo")
+                window.open(window.location.href + "router-demo")
 
             } else {
                 console.log(window.location)
