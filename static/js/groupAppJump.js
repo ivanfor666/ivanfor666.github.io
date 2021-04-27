@@ -9,8 +9,7 @@
         var dataset = otitle.dataset;
         if (typeof (dataset) === "object") {
             if (dataset.apptype === "1") {
-                window.open("router-demo")
-
+                window.open("https://jeonwei.space/router-demo")
             } else {
                 console.log(window.location)
                 window.location.href = window.location.origin;
