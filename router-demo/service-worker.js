@@ -6,15 +6,15 @@
  * See https://goo.gl/nhQhGp
  *
  * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox router-demo configuration
- * and re-run your router-demo process.
+ * directly; instead, make changes to your Workbox build configuration
+ * and re-run your build process.
  * See https://goo.gl/2aRDsh
  */
 
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3b051dec085c59559b0f59c5e9fb6ded.js"
+  "/precache-manifest.88dd01018b45d14934bfe06262541d20.js"
 );
 
 self.addEventListener('message', (event) => {
