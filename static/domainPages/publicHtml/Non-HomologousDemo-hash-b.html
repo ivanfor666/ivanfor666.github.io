@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>http://localhost:3005 hash iframe B</div>
+<input type="button" name="" value="Call API" onclick="callAPI()"/>
+<div class="content"></div>
+<iframe id="iframe" src="https://jeonwei.space/static/domainPages/CrossDomainOrNot/Non-HomologousDemo-hash-c.html"
+        style="display:none;"></iframe>
+<script>
+    var iframe = document.getElementById('iframe');    // 监听a.html传来的hash值，再传给c.html
+    window.onhashchange = function () {
+        document.getElementsByClassName("content")[0].innerHTML = decodeURIComponent(location.hash);
+    };
+
+    function callAPI() {
+        iframe.src = iframe.src + `#message=${encodeURIComponent("向A发送消息")}`;
+    }
+</script>
+</body>
+</html>

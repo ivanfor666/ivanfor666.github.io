@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>    var fn = () => {
+    const obrother = parent.window.document.getElementById("HookDemo_iframe1");
+    const omyContent2 = obrother.contentWindow.document.getElementsByClassName("myContent2")[0];
+    omyContent2.innerHTML = omyContent2.innerHTML + "<br/>" + `you has message By brother(iframe2)`;
+} </script>
+<button onclick="fn()">convey message to brother (iframe1)</button>
+<hr/>
+<div class="myContent">321</div>
+</body>
+</html>

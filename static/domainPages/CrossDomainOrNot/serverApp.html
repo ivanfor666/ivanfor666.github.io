@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content"></div>
+<input type="button" name="" value="Call API"
+       onclick="callAPI({api:'toUpperCase',reqData:{   message:'abc', }},(res)=>{console.log(res,222)})">
+<script type="text/javascript">
+    var callAPI = null;
+    (function createIframe() {
+        const oiframe = document.createElement("iframe");
+        oiframe.id = "childFrame";
+        oiframe.src = "https://jeonwei.space/static/domainPages/publicHtml/htmlServer.html";
+        oiframe.style = "display:none";
+        document.body.append(oiframe);
+    })();
+    window.onload = function () {
+        function deal(event) {
+            if (event.origin !== "jeonwei.space") return;
+            if (event.data && typeof (deal.callBack) === "function") {
+                deal.callBack(event.data)
+            }
+        }
+
+        const receiver = document.getElementById("childFrame").contentWindow;
+        callAPI = function (sendData, cb) {
+            deal.callBack = cb;
+            window.removeEventListener('message', deal, false);
+            window.addEventListener('message', deal, false);
+            receiver.postMessage(sendData, "https://jeonwei.space/static/domainPages/publicHtml/htmlServer.html");
+        }
+    }
+</script>
+</body>
+</html>

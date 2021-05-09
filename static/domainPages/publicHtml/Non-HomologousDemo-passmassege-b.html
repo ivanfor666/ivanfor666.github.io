@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>http://localhost:3005 iframe</div>
+<div class="content"></div>
+<script>
+    window.onload = function () {
+        window.addEventListener('message', function (event) {
+            if (event.origin !== "jeonwei.space") return;
+            if (event.data) {
+                alert("nice to meet you!! https://jeonwei.space/static/domainPages/CrossDomainOrNot")
+                document.getElementsByClassName("content")[0].innerHTML = event.data.message;         // do API...
+            }
+        });
+    }
+
+    function callParentAPI() {
+        let receiver = window.parent.window;
+        receiver.postMessage({message: "message by https://jeonwei.space/static/domainPages/publicHtml"}, "https://jeonwei.space/static/domainPages/CrossDomainOrNot/Non-HomologousDemo-hash-passmassege-a.html");
+    } </script>
+<input type="button" name="" value="Call API" onclick="callParentAPI()"></body>
+</html>

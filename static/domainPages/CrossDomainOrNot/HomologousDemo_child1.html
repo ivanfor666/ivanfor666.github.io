@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var iframeStore = {aa: 1};
+    var fn = () => {
+        const Homologous_iframe1 = parent.window.document.getElementsByClassName("Homologous_iframe1")[0];
+        Homologous_iframe1.innerHTML = Homologous_iframe1.innerText + " hah";
+    } </script>
+<button onclick="fn()">convey message to parent</button>
+<hr/>
+<div class="myContent">123</div>
+<div class="myContent2">waitting borther calling</div>
+</body>
+</html>

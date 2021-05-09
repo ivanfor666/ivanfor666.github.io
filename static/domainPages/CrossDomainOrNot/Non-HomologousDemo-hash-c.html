@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 监听b.html传来的hash值
+    window.onhashchange = function () {
+        // 再通过操作同域a.html的js回调，将结果传回
+        window.parent.parent.onCallback(location.hash);
+    }; </script>
+</body>
+</html>

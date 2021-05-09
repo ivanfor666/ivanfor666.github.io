@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // 向b.html传hash值
+
+    function callAPI() {
+        var iframe = document.getElementById('iframe');
+        console.log(iframe)
+        iframe.src = iframe.src + `#message=${encodeURIComponent("向B发送消息")}`;
+    }    // 开放给同域c.html的回调方法
+
+    function onCallback(res) {
+        document.getElementsByClassName("content")[0].innerHTML = decodeURIComponent(res);
+        // alert('data from c.html ---> ' + res);
+    }
+</script>
+<div>http://localhost:3003 hash iframe A</div>
+<input type="button" name="" value="Call API" onclick="callAPI()"/>
+<div class="content"></div>
+<iframe id="iframe" src="https://jeonwei.space/static/domainPages/publicHtml/Non-HomologousDemo-hash-b.html"/>
+
+</body>
+</html>
