@@ -10,7 +10,6 @@
 <script>
     window.onload = function () {
         window.addEventListener('message', function (event) {
-            alert(event.origin);
             if (event.origin !== "https://jeonwei.space") return;
             if (event.data) {
                 alert("nice to meet you!! https://jeonwei.space/static/domainPages/CrossDomainOrNot")

@@ -18,7 +18,6 @@ function callAPI() { 	/*用法：postMessage(data,origin)方法接受两个参�
 
 window.onload = function () {
     window.addEventListener('message', function (event) {
-        alert(event.origin);
         if (event.origin !== "https://jeonwei.space") return;
         if (event.data) {
             alert("nice to meet you!! https://jeonwei.space/static/domainPages/publicHtml")
