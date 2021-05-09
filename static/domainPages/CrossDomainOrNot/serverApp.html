@@ -19,7 +19,7 @@
     })();
     window.onload = function () {
         function deal(event) {
-            if (event.origin !== "jeonwei.space") return;
+            if (event.origin !== "https://jeonwei.space") return;
             if (event.data && typeof (deal.callBack) === "function") {
                 deal.callBack(event.data)
             }
