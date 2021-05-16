@@ -8,11 +8,14 @@
         var otitle = document.getElementsByTagName("title")[0];
         var dataset = otitle.dataset;
         if (typeof (dataset) === "object") {
-            if (dataset.apptype === "1") {
+            if (dataset.apptype === "home") {
                 window.location.href = window.location.href + "router-demo"
-
+            }else if (dataset.apptype === "routerDemo") {
+                window.location.href = window.location.href + "dva-demo"
+            } else if (dataset.apptype === "dvaDemo") {
+                window.location.href = window.location.origin;
             } else {
-                console.log(window.location)
+                // console.log(window.location)
                 window.location.href = window.location.origin;
             }
         }
