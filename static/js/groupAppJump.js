@@ -11,7 +11,7 @@
             if (dataset.apptype === "home") {
                 window.location.href = window.location.href + "router-demo"
             }else if (dataset.apptype === "routerDemo") {
-                window.location.href = window.location.href + "dva-demo"
+                window.location.href = window.location.origin + "/dva-demo"
             } else if (dataset.apptype === "dvaDemo") {
                 window.location.href = window.location.origin;
             } else {
