@@ -1,4 +1,5 @@
 !(function f() {
+    alert(1111)
     var odiv = document.createElement('div');
     odiv.setAttribute("class", "right_top");
     odiv.innerText = "to";
