@@ -14,6 +14,8 @@
             }else if (dataset.apptype === "routerDemo") {
                 window.location.href = window.location.origin + "/dva-demo"
             } else if (dataset.apptype === "dvaDemo") {
+                window.location.href = window.location.origin + "/saga-add-react-demo"
+            }  else if (dataset.apptype === "saga-add-react") {
                 window.location.href = window.location.origin;
             } else {
                 // console.log(window.location)

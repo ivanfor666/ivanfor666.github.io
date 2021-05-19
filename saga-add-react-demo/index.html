@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title data-apptype="saga-add-react">saga-add-react</title>
+</head>
+<body>
+<div id="html" style="background: aliceblue">
+    <hr/>
+    原生dom
+    <button onclick="(function f() {
+        store.dispatch({
+        type:'save',
+        payload:{number:0}
+        });
+    })()">
+        reset
+    </button>
+    <hr/>
+</div>
+<div id="root"></div>
+<script type="text/javascript" src="./main.js"></script>
+<script src="../static/js/groupAppJump.js"></script>
+</body>
+</html>
