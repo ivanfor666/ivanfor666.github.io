@@ -22,10 +22,10 @@
 	ding: navigator.userAgent.indexOf('DingTalk') > -1, // 是否钉钉
 	wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
 };
-alert(_app_agent.ding)
+Object.keys(_app_agent).forEach(key=>alert(key+_app_agent[key]))
   </script>
 </head>
 <body>
-  dingding go33!!!
+  dingding go222!!!
 </body>
 </html>
