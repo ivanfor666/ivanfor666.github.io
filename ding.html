@@ -12,6 +12,7 @@ JSAPI鉴权 -->
 
 <body>
   dingding 9999!!!
+  <button onclick="yuyin()">录制与播放</button>
 </body>
 <script>
   var _app_agent = {
@@ -37,12 +38,9 @@ JSAPI鉴权 -->
 
   document.body.appendChild(script);
 
-  script.onload = () => {
-    dd = window.dd;
-    dd.ready(function () {
-
-      // 手机震动
-      dd.device.notification.vibrate({
+  function temp(){
+// 手机震动
+dd.device.notification.vibrate({
         duration: 300,
         onSuccess: function (res) {
           // 调用成功时回调
@@ -53,9 +51,9 @@ JSAPI鉴权 -->
           console.log(err)
         }
       });
-  
-      // 手机图片
-      dd.biz.util.previewImage({
+
+// 手机图片预览
+dd.biz.util.previewImage({
 	urls: ["https://jeonwei.space/machong/machong.jpg"],
 	current: "https://jeonwei.space/machong/machong.jpg",
 	onSuccess : function(res) {
@@ -67,6 +65,74 @@ JSAPI鉴权 -->
 		console.log(err)
 	}
 });
+  }
+
+  function yuyin (){
+    const timeout = 3000;
+
+    
+    // 开始
+    dd.device.audio.startRecord({
+	maxDuration: timeout,
+	onSuccess : function(res) {
+    alert("开始录制");
+		// 调用成功时回调
+		console.log(res)
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
+
+setTimeout(() => {
+  let mediaId 
+
+      // 结束
+dd.device.audio.stopRecord({
+	onSuccess : function(res) {
+    alert("停止录制");
+		// 调用成功时回调
+		console.log(res)
+    const {result} = res
+    mediaId = result.mediaId
+
+    setTimeout(() => {
+      dd.device.audio.translateVoice({
+	mediaId,
+	duration: 3,
+	onSuccess : function(res) {
+		// 调用成功时回调
+		console.log(res)
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
+    }, 1000);
+    
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
+
+
+
+
+    }, timeout);
+
+  }
+
+  script.onload = () => {
+    dd = window.dd;
+    dd.ready(function () {
+
+      
+  
+      
 
     });
   };
