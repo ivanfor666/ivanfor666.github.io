@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 2341!!!
+  dingding 12111!!!
   <button onclick="yuyin()">录制与播放</button>
 </body>
 <script>
@@ -164,9 +164,30 @@ dd.device.audio.stopRecord({
     dd = window.dd;
     dd.ready(function () {
 
+      // 手机震动
+dd.device.notification.vibrate({
+        duration: 300,
+        onSuccess: function (res) {
+          // 调用成功时回调
+          console.log(res)
+        },
+        onFail: function (err) {
+          // 调用失败时回调
+          console.log(err)
+        }
+      });
       
-  
-      
+      dd.device.audio.play({
+	localAudioId: "@lATPDgtYuwY3hH7OOLrcU84ApkhY",
+	onSuccess : function(res) {
+		// 调用成功时回调
+		console.log(res)
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
 
     });
   };
