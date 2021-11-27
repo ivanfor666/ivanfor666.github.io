@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 77888!!!
+  dingding 9999!!!
 </body>
 <script>
   var _app_agent = {
@@ -31,10 +31,6 @@ JSAPI鉴权 -->
     wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
   };
 
-  // if (_app_agent.ding) {
-  //   alert("钉钉环境")
-  // }
-
   // 带corpId， 从首页进入APP
   const script = document.createElement('script');
   script.src = 'https://g.alicdn.com/dingding/dingtalk-jsapi/2.11.2/dingtalk.open.js';
@@ -45,8 +41,23 @@ JSAPI鉴权 -->
     dd = window.dd;
     dd.ready(function () {
 
+      // 手机震动
       dd.device.notification.vibrate({
-	duration: 300,
+        duration: 300,
+        onSuccess: function (res) {
+          // 调用成功时回调
+          console.log(res)
+        },
+        onFail: function (err) {
+          // 调用失败时回调
+          console.log(err)
+        }
+      });
+  
+      // 手机图片
+      dd.biz.util.previewImage({
+	urls: ["https://jeonwei.space/machong/machong.jpg"],
+	current: "https://jeonwei.space/machong/machong.jpg",
 	onSuccess : function(res) {
 		// 调用成功时回调
 		console.log(res)
@@ -57,32 +68,6 @@ JSAPI鉴权 -->
 	}
 });
 
-  //     fetch('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&AppSecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
-  // .then(response => {alert(1111);alert(response.json()); return response.json()})
-  // .then(data =>data);
-
-    // const res =   async function postData(url = '', data = {}) {
-    //     const response = await fetch(url, {
-    //       method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(data) // body data type must match "Content-Type" header
-    //     });
-    //     return response.json(); // parses JSON response into native JavaScript objects
-    //   }
-    // console.log(res)
-      // // dd.ready参数为回调函数，在环境准备就绪时触发，jsapi的调用需要保证在该回调函数触发后调用，否则无效。
-      // dd.runtime.permission.requestAuthCode({
-      //     corpId: "corpid",
-      //     onSuccess: function(result) {
-      //     /*{
-      //         code: 'hYLK98jkf0m' //string authCode
-      //     }*/
-      //     },
-      //     onFail : function(err) {}
-
-      // });
     });
   };
 </script>
