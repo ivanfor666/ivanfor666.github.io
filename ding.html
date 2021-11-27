@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 6666!!!
+  dingding 332!!!
 </body>
 <script>
   var _app_agent = {
@@ -46,8 +46,8 @@ JSAPI鉴权 -->
     dd.ready(function () {
 
       fetch('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&AppSecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
-  .then(response => response.json())
-  .then(data => alert(data));
+  .then(response => {alert(1111);alert(response.json()); return response.json()})
+  .then(data =>data);
 
     // const res =   async function postData(url = '', data = {}) {
     //     const response = await fetch(url, {
