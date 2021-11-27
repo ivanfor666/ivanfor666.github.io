@@ -6,42 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <script>
-    var _app_agent = {
-      trident: navigator.userAgent.indexOf('Trident') > -1, // IE内核
-      presto: navigator.userAgent.indexOf('Presto') > -1, // opera内核
-      webKit: navigator.userAgent.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
-      gecko: navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') === -1, // 火狐内核
-      mobile: !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
-      ios: !!navigator.userAgent.match(/Mac OS X/), // ios终端
-      android: navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1, // android终端或者uc浏览器
-      iPhone: navigator.userAgent.indexOf('iPhone') > -1, // 是否为iPhone或者QQHD浏览器
-      iPad: navigator.userAgent.indexOf('iPad') > -1, // 是否iPad
-      weixin: navigator.userAgent.indexOf('MicroMessenger') > -1, // 是否微信
-      ali: navigator.userAgent.indexOf('AlipayClient') > -1, // 是否支付宝
-      qq: navigator.userAgent.match(/\sQQ/i) === ' qq', // 是否QQ
-      ding: navigator.userAgent.indexOf('DingTalk') > -1, // 是否钉钉
-      wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
-    };
-    
-    if(_app_agent.ding){
-      alert("钉钉环境")
-    }
-
-    // 带corpId， 从首页进入APP
-    const script = document.createElement('script');
-            script.src = 'https://g.alicdn.com/dingding/dingtalk-jsapi/2.11.2/dingtalk.open.js';
-            
-            document.body.appendChild(script);
-            script.onload = () => {
-                dd = window.dd;
-                alert(dd)
-            };
-  </script>
+  
 </head>
 
 <body>
   dingding go222!!!
 </body>
+<script>
+  var _app_agent = {
+    trident: navigator.userAgent.indexOf('Trident') > -1, // IE内核
+    presto: navigator.userAgent.indexOf('Presto') > -1, // opera内核
+    webKit: navigator.userAgent.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
+    gecko: navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') === -1, // 火狐内核
+    mobile: !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
+    ios: !!navigator.userAgent.match(/Mac OS X/), // ios终端
+    android: navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1, // android终端或者uc浏览器
+    iPhone: navigator.userAgent.indexOf('iPhone') > -1, // 是否为iPhone或者QQHD浏览器
+    iPad: navigator.userAgent.indexOf('iPad') > -1, // 是否iPad
+    weixin: navigator.userAgent.indexOf('MicroMessenger') > -1, // 是否微信
+    ali: navigator.userAgent.indexOf('AlipayClient') > -1, // 是否支付宝
+    qq: navigator.userAgent.match(/\sQQ/i) === ' qq', // 是否QQ
+    ding: navigator.userAgent.indexOf('DingTalk') > -1, // 是否钉钉
+    wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
+  };
+  
+  if(_app_agent.ding){
+    alert("钉钉环境")
+  }
 
+  // 带corpId， 从首页进入APP
+  const script = document.createElement('script');
+          script.src = 'https://g.alicdn.com/dingding/dingtalk-jsapi/2.11.2/dingtalk.open.js';
+          
+          document.body.appendChild(script);
+          script.onload = () => {
+              dd = window.dd;
+              alert(dd)
+          };
+</script>
 </html>
