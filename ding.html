@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 665!!!
+  dingding 3453!!!
   <button onclick="yuyin()">录制与播放</button>
 </body>
 <script>
@@ -67,9 +67,8 @@ dd.biz.util.previewImage({
 });
   }
 
-  function yuyin (){
-
-    // 手机震动
+  function zhengdong(){
+// 手机震动
 dd.device.notification.vibrate({
         duration: 300,
         onSuccess: function (res) {
@@ -81,15 +80,20 @@ dd.device.notification.vibrate({
           console.log(err)
         }
       });
+  }
+
+  function yuyin (){
+
+    
 
     const timeout = 3000;
 
-    
+    alert("开始录制");
     // 开始
     dd.device.audio.startRecord({
 	maxDuration: timeout,
 	onSuccess : function(res) {
-    alert("开始录制");
+    zhengdong()
 		// 调用成功时回调
 		console.log(res)
 	},
@@ -99,7 +103,10 @@ dd.device.notification.vibrate({
 	}
 });
 
+
+
 setTimeout(() => {
+  alert("关闭");
   let mediaId 
 
       // 结束
@@ -136,7 +143,7 @@ dd.device.audio.stopRecord({
 
 
 
-    }, timeout);
+    }, timeout+1000);
 
   }
 
