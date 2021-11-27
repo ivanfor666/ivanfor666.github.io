@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 9999!!!
+  dingding 665!!!
   <button onclick="yuyin()">录制与播放</button>
 </body>
 <script>
@@ -68,6 +68,20 @@ dd.biz.util.previewImage({
   }
 
   function yuyin (){
+
+    // 手机震动
+dd.device.notification.vibrate({
+        duration: 300,
+        onSuccess: function (res) {
+          // 调用成功时回调
+          console.log(res)
+        },
+        onFail: function (err) {
+          // 调用失败时回调
+          console.log(err)
+        }
+      });
+
     const timeout = 3000;
 
     
