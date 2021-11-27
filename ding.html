@@ -11,7 +11,7 @@ JSAPI鉴权 -->
 </head>
 
 <body>
-  dingding 3453!!!
+  dingding 456346!!!
   <button onclick="yuyin()">录制与播放</button>
 </body>
 <script>
@@ -84,7 +84,19 @@ dd.device.notification.vibrate({
 
   function yuyin (){
 
-    
+    dd.device.audio.play({
+	localAudioId: "@lATPDgtYuwY3hH7OOLrcU84ApkhY",
+	onSuccess : function(res) {
+		// 调用成功时回调
+		console.log(res)
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
+
+return
 
     const timeout = 3000;
 
