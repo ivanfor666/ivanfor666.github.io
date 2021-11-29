@@ -120,7 +120,8 @@ class Ding_OBj {
 
   // 新alert事件
     alert(title,message){
-      dd.device.notification.alert({
+      alert("111");
+      window.dd.device.notification.alert({
         message,
         title,
       });
