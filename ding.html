@@ -24,19 +24,30 @@
 	wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
 };
 
+
+
 	window.onload=()=>{
-		dd.biz.util.previewImage({
-	urls: ["https://jeonwei.space/machong/machong.jpg", "https://jeonwei.space/machong/machong.jpg"],
-	current: "https://jeonwei.space/machong/machong.jpg",
-	onSuccess : function(res) {
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
+		alert(JSON.stringify({a:111}))
+		alert('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
+		fetch('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
+  .then(response => response.json())
+  .then(data => {
+		alert("成功")
+		alert(JSON.stringify(data))
+		console.log(data)
+	});
+// 		dd.biz.util.previewImage({
+// 	urls: ["https://jeonwei.space/machong/machong.jpg", "https://jeonwei.space/machong/machong.jpg"],
+// 	current: "https://jeonwei.space/machong/machong.jpg",
+// 	onSuccess : function(res) {
+// 		// 调用成功时回调
+// 		console.log(res)
+// 	},
+// 	onFail : function(err) {
+// 		// 调用失败时回调
+// 		console.log(err)
+// 	}
+// });
 	}
   </script>
 </head>
