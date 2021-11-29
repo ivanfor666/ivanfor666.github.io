@@ -28,8 +28,8 @@
 
 	window.onload=()=>{
 		alert(JSON.stringify({a:111}))
-		alert('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
-		fetch('https://oapi.dingtalk.com/gettoken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
+		alert('https://api.dingtalk.com/v1.0/oauth2/accessToken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
+		fetch('https://api.dingtalk.com/v1.0/oauth2/accessToken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
   .then(response => response.json())
   .then(data => {
 		alert("成功")
@@ -52,6 +52,6 @@
   </script>
 </head>
 <body>
-  dingding go222!!!
+  dingding 333!!!
 </body>
 </html>
