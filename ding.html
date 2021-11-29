@@ -1,196 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <!-- <script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
-JSAPI鉴权 -->
+	<script src="https://g.alicdn.com/dingding/dingtalk-jsapi/2.10.3/dingtalk.open.js"></script>
+  <script>
+  var  _app_agent = {
+	trident: navigator.userAgent.indexOf('Trident') > -1, // IE内核
+	presto: navigator.userAgent.indexOf('Presto') > -1, // opera内核
+	webKit: navigator.userAgent.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
+	gecko: navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') === -1, // 火狐内核
+	mobile: !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
+	ios: !!navigator.userAgent.match(/Mac OS X/), // ios终端
+	android: navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1, // android终端或者uc浏览器
+	iPhone: navigator.userAgent.indexOf('iPhone') > -1, // 是否为iPhone或者QQHD浏览器
+	iPad: navigator.userAgent.indexOf('iPad') > -1, // 是否iPad
+	weixin: navigator.userAgent.indexOf('MicroMessenger') > -1, // 是否微信
+	ali: navigator.userAgent.indexOf('AlipayClient') > -1, // 是否支付宝
+	qq: navigator.userAgent.match(/\sQQ/i) === ' qq', // 是否QQ
+	ding: navigator.userAgent.indexOf('DingTalk') > -1, // 是否钉钉
+	wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
+};
+
+	window.onload=()=>{
+		dd.biz.util.previewImage({
+	urls: ["https://img.alicdn.com/tfs/TB1KzrwRFXXXXasXXXXXXXXXXXX-540-380.png", "https://img.alicdn.com/tfs/TB1KzrwRFXXXXasXXXXXXXXXXXX-540-380.png"],
+	current: "https://img.alicdn.com/tfs/TB1KzrwRFXXXXasXXXXXXXXXXXX-540-380.png",
+	onSuccess : function(res) {
+		// 调用成功时回调
+		console.log(res)
+	},
+	onFail : function(err) {
+		// 调用失败时回调
+		console.log(err)
+	}
+});
+	}
+  </script>
 </head>
-
 <body>
-  dingding 44444!!!
-  <button onclick="yuyin()">录制与播放</button>
+  dingding go222!!!
 </body>
-<script>
-  var _app_agent = {
-    trident: navigator.userAgent.indexOf('Trident') > -1, // IE内核
-    presto: navigator.userAgent.indexOf('Presto') > -1, // opera内核
-    webKit: navigator.userAgent.indexOf('AppleWebKit') > -1, // 苹果、谷歌内核
-    gecko: navigator.userAgent.indexOf('Gecko') > -1 && navigator.userAgent.indexOf('KHTML') === -1, // 火狐内核
-    mobile: !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/), // 是否为移动终端
-    ios: !!navigator.userAgent.match(/Mac OS X/), // ios终端
-    android: navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Linux') > -1, // android终端或者uc浏览器
-    iPhone: navigator.userAgent.indexOf('iPhone') > -1, // 是否为iPhone或者QQHD浏览器
-    iPad: navigator.userAgent.indexOf('iPad') > -1, // 是否iPad
-    weixin: navigator.userAgent.indexOf('MicroMessenger') > -1, // 是否微信
-    ali: navigator.userAgent.indexOf('AlipayClient') > -1, // 是否支付宝
-    qq: navigator.userAgent.match(/\sQQ/i) === ' qq', // 是否QQ
-    ding: navigator.userAgent.indexOf('DingTalk') > -1, // 是否钉钉
-    wxwork: navigator.userAgent.indexOf('wxwork') > -1, // 是否企业微信
-  };
-
-  // 带corpId， 从首页进入APP
-  const script = document.createElement('script');
-  script.src = 'https://g.alicdn.com/dingding/dingtalk-jsapi/2.11.2/dingtalk.open.js';
-
-  document.body.appendChild(script);
-
-  function temp(){
-// 手机震动
-dd.device.notification.vibrate({
-        duration: 300,
-        onSuccess: function (res) {
-          // 调用成功时回调
-          console.log(res)
-        },
-        onFail: function (err) {
-          // 调用失败时回调
-          console.log(err)
-        }
-      });
-
-// 手机图片预览
-dd.biz.util.previewImage({
-	urls: ["https://jeonwei.space/machong/machong.jpg"],
-	current: "https://jeonwei.space/machong/machong.jpg",
-	onSuccess : function(res) {
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-  }
-
-  function zhengdong(){
-// 手机震动
-dd.device.notification.vibrate({
-        duration: 300,
-        onSuccess: function (res) {
-          // 调用成功时回调
-          console.log(res)
-        },
-        onFail: function (err) {
-          // 调用失败时回调
-          console.log(err)
-        }
-      });
-  }
-
-  function yuyin (){
-
-    alert("开始播放");
-    dd.device.audio.play({
-	localAudioId: "@lATPDgtYuwY3hH7OOLrcU84ApkhY",
-	onSuccess : function(res) {
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-
-return 
-
-    const timeout = 3000;
-
-    alert("开始录制");
-    // 开始
-    dd.device.audio.startRecord({
-	maxDuration: timeout,
-	onSuccess : function(res) {
-    zhengdong()
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-
-
-
-setTimeout(() => {
-  alert("关闭");
-  let mediaId 
-
-      // 结束
-dd.device.audio.stopRecord({
-	onSuccess : function(res) {
-    alert("停止录制");
-		// 调用成功时回调
-		console.log(res)
-    const {result} = res
-    mediaId = result.mediaId
-
-    setTimeout(() => {
-      dd.device.audio.translateVoice({
-	mediaId,
-	duration: 3,
-	onSuccess : function(res) {
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-    }, 1000);
-    
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-
-
-
-
-    }, timeout+1000);
-
-  }
-
-  script.onload = () => {
-    dd = window.dd;
-    dd.ready(function () {
-      alert(dd.device.notification.vibrate)
-      // 手机震动
-dd.device.notification.vibrate({
-        duration: 300,
-        onSuccess: function (res) {
-          // 调用成功时回调
-          console.log(res)
-        },
-        onFail: function (err) {
-          // 调用失败时回调
-          console.log(err)
-        }
-      });
-      alert(dd.device.audio.play)
-      dd.device.audio.play({
-	localAudioId: "@lATPDgtYuwY3hH7OOLrcU84ApkhY",
-	onSuccess : function(res) {
-		// 调用成功时回调
-		console.log(res)
-	},
-	onFail : function(err) {
-		// 调用失败时回调
-		console.log(err)
-	}
-});
-
-    });
-  };
-</script>
-
 </html>
