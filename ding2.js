@@ -92,7 +92,7 @@ const ding_addEventListenerFn = ()=>{
   );
 }
 
-const ding_getInfo = ()=>{
+const ding_getInfoFn = ()=>{
   dd.device.base.getPhoneInfo({
     onSuccess : function(data) {
       window.ding_OBj.alert({
@@ -130,13 +130,18 @@ class Ding_OBj {
 
 // 钉钉环境启动引擎
 const dingEngineFn = ()=>{
-  alert("dingEngineFn")
   //增加全局变量，辅助函数
   window.ding_OBj =  new Ding_OBj
   alert("增加全局变量，辅助函数")
+
+  window.ding_OBj.alert({
+    message: JSON.stringify("123"),
+    title: "...警告...",
+  });
   // 钉钉物理键监听
   ding_addEventListenerFn()
-  alert("钉钉物理键监听")
+
+  
   //手机基本信息获取
   ding_getInfoFn()
 
