@@ -26,7 +26,7 @@ const ding_addEventListenerFn = ()=>{
     "pause",
     function (e) {
       e.preventDefault();
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: "事件：pause",
         title: "...警告...",
       });
@@ -41,7 +41,7 @@ const ding_addEventListenerFn = ()=>{
     "resume",
     function (e) {
       e.preventDefault();
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: "事件：resume",
         title: "...警告...",
       });
@@ -55,7 +55,7 @@ const ding_addEventListenerFn = ()=>{
     "backbutton",
     function (e) {
       e.preventDefault();
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: "哎呀，你不小心点到返回键啦!",
         title: "...警告...",
       });
@@ -68,7 +68,7 @@ const ding_addEventListenerFn = ()=>{
     "online",
     function (e) {
       e.preventDefault();
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: "事件：online",
         title: "...警告...",
       });
@@ -82,7 +82,7 @@ const ding_addEventListenerFn = ()=>{
     "offline",
     function (e) {
       e.preventDefault();
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: "事件：offline",
         title: "...警告...",
       });
@@ -95,7 +95,7 @@ const ding_addEventListenerFn = ()=>{
 const ding_getInfoFn = ()=>{
   dd.device.base.getPhoneInfo({
     onSuccess : function(data) {
-      window.ding_OBj.alert({
+      window.ding_Obj.alert({
         message: JSON.stringify(data),
         title: "...警告...",
       });
@@ -110,13 +110,22 @@ const ding_getInfoFn = ()=>{
             operatorType:'xx' // 运营商信息
         }
         */
+
+        const {screenWidth,screenHeight}
+        window.ding_Obj.screenWidth = screenWidth;
+        window.ding_Obj.screenHeight = screenHeight;
+        
+        window.ding_Obj.alert({
+          message: JSON.stringify(window.ding_Obj),
+          title: "...警告...",
+        });
     },
     onFail : function(err) {}
 });
   return {}
 }
 
-class Ding_OBj {
+class Ding_Obj {
   // 新alert事件
     alert({title,message}){
       window.dd.device.notification.alert({
@@ -129,23 +138,11 @@ class Ding_OBj {
 // 钉钉环境启动引擎
 const dingEngineFn = ()=>{
   //增加全局变量，辅助函数
-  window.ding_OBj =  new Ding_OBj
-  alert("增加全局变量，辅助函数")
-
-  window.ding_OBj.alert({
-    message: JSON.stringify("23211321"),
-    title: "...警告...",
-  });
-
-  window.dd.device.notification.alert({
-    message,
-    title,
-  });
+  window.ding_Obj =  new Ding_Obj
 
   // 钉钉物理键监听
   ding_addEventListenerFn()
 
-  
   //手机基本信息获取
   ding_getInfoFn()
 
