@@ -27,15 +27,27 @@
 
 
 	window.onload=()=>{
-		alert(JSON.stringify({a:111}))
-		alert('https://api.dingtalk.com/v1.0/oauth2/accessToken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
-		fetch('https://api.dingtalk.com/v1.0/oauth2/accessToken?appkey=dingxf4nwp6rpiyt5ydc&appsecret=ELAFsss9aFC3klkbBm04_gTZ3pheTVKyZh3VwwSIp0nEsIZUymW9s6x-sqOuau0g')
+
+
+		alert(JSON.stringify({a:222}))
+		// https://open-dev.dingtalk.com/apiExplorer?spm=ding_open_doc.document.0.0.41f976e0ttrRyH#/?devType=org&api=oauth2_1.0%23GetAccessToken
+		// "accessToken":"c3d0aab19ecd3b0da55b903bf44b6296"
+		fetch('https://oapi.dingtalk.com/get_jsapi_ticket?access_token=c3d0aab19ecd3b0da55b903bf44b6296')
   .then(response => response.json())
   .then(data => {
 		alert("成功")
 		alert(JSON.stringify(data))
 		console.log(data)
 	});
+
+	window.dd.ready(function() {
+    dd.runtime.permission.requestAuthCode({
+        corpId: "ding12345xxx", // 企业id
+        onSuccess: function (info) {
+                  code = info.code // 通过该免登授权码可以获取用户身份
+        }});
+});
+
 // 		dd.biz.util.previewImage({
 // 	urls: ["https://jeonwei.space/machong/machong.jpg", "https://jeonwei.space/machong/machong.jpg"],
 // 	current: "https://jeonwei.space/machong/machong.jpg",
@@ -52,6 +64,6 @@
   </script>
 </head>
 <body>
-  dingding 333!!!
+  dingding 2222!!!
 </body>
 </html>
