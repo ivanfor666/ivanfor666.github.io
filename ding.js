@@ -19,61 +19,129 @@ const _app_agent = {
   wxwork: navigator.userAgent.indexOf("wxwork") > -1, // 是否企业微信
 };
 
+// 钉钉物理键监听
+const ding_addEventListenerFn = ()=>{
+  // 退到后台的事件监听(webview)
+  document.addEventListener(
+    "pause",
+    function (e) {
+      e.preventDefault();
+      window.ding_OBj.alert({
+        message: "事件：pause",
+        title: "...警告...",
+      });
+      console.log("事件：pause");
+      
+    },
+    false
+  );
+
+  // 页面被唤醒的事件监听(webview)
+  document.addEventListener(
+    "resume",
+    function (e) {
+      e.preventDefault();
+      window.ding_OBj.alert({
+        message: "事件：resume",
+        title: "...警告...",
+      });
+      console.log("事件：resume");
+    },
+    false
+  );
+
+  //返回按钮点击的事件监听(android)
+  document.addEventListener(
+    "backbutton",
+    function (e) {
+      e.preventDefault();
+      window.ding_OBj.alert({
+        message: "哎呀，你不小心点到返回键啦!",
+        title: "...警告...",
+      });
+    },
+    false
+  );
+
+  // 网络连接成功的事件监听
+  document.addEventListener(
+    "online",
+    function (e) {
+      e.preventDefault();
+      window.ding_OBj.alert({
+        message: "事件：online",
+        title: "...警告...",
+      });
+      console.log("事件：online");
+    },
+    false
+  );
+
+  // 网络连接断开的事件监听
+  document.addEventListener(
+    "offline",
+    function (e) {
+      e.preventDefault();
+      window.ding_OBj.alert({
+        message: "事件：offline",
+        title: "...警告...",
+      });
+      console.log("事件：offline");
+    },
+    false
+  );
+}
+
+const ding_getInfo = ()=>{
+  dd.device.base.getPhoneInfo({
+    onSuccess : function(data) {
+      window.ding_OBj.alert({
+        message: JSON.stringify(data),
+        title: "...警告...",
+      });
+        /*
+        {
+            screenWidth: 1080, // 手机屏幕宽度
+            screenHeight: 1920, // 手机屏幕高度
+            brand:'Mi', // 手机品牌
+            model:'Note4', // 手机型号
+            version:'7.0', // 版本
+            netInfo:'wifi', // 网络类型 wifi／4g／3g 
+            operatorType:'xx' // 运营商信息
+        }
+        */
+    },
+    onFail : function(err) {}
+});
+  return {}
+}
+
+class Ding_OBj {
+
+  // 新alert事件
+    alert(title,message){
+      dd.device.notification.alert({
+        message,
+        title,
+      });
+    }
+}
+
+// 钉钉环境启动引擎
+const dingEngineFn = ()=>{
+  //增加全局变量，辅助函数
+  window.ding_OBj =  new Ding_OBj
+
+  // 钉钉物理键监听
+  ding_addEventListenerFn()
+
+  //手机基本信息获取
+  ding_getInfoFn()
+
+}
+
 window.onload = () => {
   // 钉钉环境
   _app_agent.ding &&
-    window.dd.ready(function () {
-      // 退到后台的事件监听(webview)
-      document.addEventListener(
-        "pause",
-        function (e) {
-          e.preventDefault();
-          console.log("事件：pause");
-        },
-        false
-      );
-
-      // 页面被唤醒的事件监听(webview)
-      document.addEventListener(
-        "resume",
-        function (e) {
-          e.preventDefault();
-          console.log("事件：resume");
-        },
-        false
-      );
-
-      //返回按钮点击的事件监听(android)
-      document.addEventListener(
-        "backbutton",
-        function (e) {
-          e.preventDefault();
-          dd.device.notification.alert({
-            message: "哎呀，你不小心点到返回键啦!",
-            title: "...警告...",
-          });
-        },
-        false
-      );
-
-      // 网络连接成功的事件监听
-      document.addEventListener(
-        "online",
-        function (e) {
-          e.preventDefault();
-          console.log("事件：online");
-        },
-        false
-      );
-
-      // 网络连接断开的事件监听
-      document.addEventListener(
-        "offline",
-        function (e) {
-          e.preventDefault();
-          console.log("事件：offline");
-        },
-        false
-      );
-    });
+    window.dd.ready(dingEngineFn);
 };
